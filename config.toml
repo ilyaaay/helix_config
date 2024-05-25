@@ -1,0 +1,16 @@
+theme = "vim_dark_high_contrast"
+
+[editor]
+auto-pairs = true
+
+[editor.cursor-shape]
+insert = "block"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = true
+
+[editor.lsp]
+display-messages = true
+
