@@ -7,16 +7,49 @@ roots = ["Cargo.toml", "Cargo.lock"]
 auto-format = true
 indent = { tab-width = 4, unit = "	" }
 
-[language.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-
 [[grammar]]
 name = "rust"
 source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "41e23b454f503e6fe63ec4b6d9f7f2cf7788ab8e" }
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+check.features = "all"
+completion.fullFunctionSignatures.enable = true
+diagnostics.experimental.enable = true
+diagnostics.styleLints.enable = true
+hover.actions.references.enable = true
+hover.memoryLayout.niche = true
+inlayHints.bindingModeHints.enable = true
+inlayHints.closingBraceHints.minLines = 1
+inlayHints.closureCaptureHints.enable = true
+inlayHints.closureReturnTypeHints.enable = "always"           # with_block
+inlayHints.closureStyle = "rust_analyzer"                     # impl_fn | with_id
+inlayHints.discriminantHints.enable = "always"                # fieldless
+inlayHints.expressionAdjustmentHints.enable = "reborrow_only"
+inlayHints.genericParameterHints.lifetime.enable = true
+inlayHints.genericParameterHints.type.enable = true
+inlayHints.implicitDrops.enable = false
+inlayHints.lifetimeElisionHints.enable = "always"             # skip_trivial
+inlayHints.lifetimeElisionHints.useParameterNames = true
+inlayHints.rangeExclusiveHints.enable = true
+interpret.tests = true
+lens.references.adt.enable = true
+lens.references.enumVariant.enable = true
+lens.references.method.enable = true
+lens.references.trait.enable = true
+semanticHighlighting.operator.specialization.enable = true
+semanticHighlighting.punctuation.separate.macro.bang = true
+semanticHighlighting.punctuation.specialization.enable = true
+typing.autoClosingAngleBrackets.enable = true
+
+[[language]]
+name = "clojure"
+language-servers = [ "clojure-lsp" ]
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "clojure"
+source = { git = "https://github.com/sogaiu/tree-sitter-clojure", rev = "e57c569ae332ca365da623712ae1f50f84daeae2" }
 
 [[language]]
 name = "javascript"
@@ -31,4 +64,19 @@ formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
 [[language]]
 name = "toml"
 formatter = { command = "prettier" }
+auto-format = true
+
+[[grammar]]
+name = "c"
+source = { git = "https://github.com/tree-sitter/tree-sitter-c", rev = "7175a6dd5fc1cee660dce6fe23f6043d75af424a" }
+
+[[language]]
+name = "cpp"
+scope = "source.cpp"
+injection-regex = "cpp"
+language-servers = [ "clangd" ]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "zig"
 auto-format = true

@@ -14,3 +14,5 @@ hidden = true
 [editor.lsp]
 display-messages = true
 
+[keys.normal]
+"esc" = ["collapse_selection", ":w"]
