@@ -80,3 +80,7 @@ indent = { tab-width = 2, unit = "  " }
 [[language]]
 name = "zig"
 auto-format = true
+
+[language-server.zls]
+command = "/" # path to executable zls
+config.zig_exe_path = "/" # path to executable zls
